@@ -1,8 +1,14 @@
 body {
   .cont {
-    background-color: darkcyan;
+    height: 100dvh;
+    background-color: rgb(62, 66, 66);
     h1 {
-      color: violet;
+      color: grey;
+    }
+    .game-cont {
+      .post-game {
+        display: none;
+      }
     }
   }
 }

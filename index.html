@@ -8,14 +8,21 @@
     <title>Programma Webcom</title>
 </head>
 <body>
-    <div class="container-fluid cont pb-5">
+    <div class="container-fluid cont d-flex flex-column justify-content-center">
         <h1 class="text-center">Indovina il numero</h1>
         <div class="game-cont w-50 m-auto rounded p-5 bg-secondary text-center">
             <h5>indovina a che numero sto pensando:</h5>
             <form>
                 <label for="numero">Inserisci un numero tra 1 e 10:</label>
-                <input type="number" name="numero" min="1" max="10">
+                <input type="number" name="numero" min="1" max="10" id="user-num" required>
+                <input type="submit" value="Conferma" id="submit">
             </form>
+            <div class="post-game border border-light bg-light w-75 m-auto mt-4 p-3" id="esito">
+                <!-- <p class="parag">
+                    <span class="text-success">Corretto!</span>
+                    ho pensato proprio al numero AH, hai vinto!
+                </p> -->
+            </div>
         </div>
     </div>
 

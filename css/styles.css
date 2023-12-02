@@ -1,6 +1,9 @@
 body .cont {
-  background-color: darkcyan; }
+  height: 100dvh;
+  background-color: #3e4242; }
   body .cont h1 {
-    color: violet; }
+    color: grey; }
+  body .cont .game-cont .post-game {
+    display: none; }
 
 /*# sourceMappingURL=style.scss.map */
