@@ -8,9 +8,11 @@ Se l’utente non ha indovinato potrà riprovare altrimenti il programma informe
 // genero un numero da 1 a 10 come previsto da consegna
 let randNumber = Math.floor(Math.random() * 10) + 1;
 // faccio un console log per assicurarmi funzioni
- console.log(randNumber);
+// console.log(randNumber);
 // Raccolgo la variabile del bottone nel form
 let button = document.getElementById("submit");
+// raccolgo la variabile del form che disciplina tutto 
+let campoFormEl = document.getElementById("game-form");
 //raccolgo la variabile dei risultati
 let postGameEl = document.getElementById("esito");
 
@@ -24,16 +26,32 @@ function startGame(event) {
     fuori non avrebbe senso perché in quel momento il campo risulterebbe vuoto */
     let userNumEl = document.getElementById("user-num").value;
     //faccio un console log per assicurarmi giri tutto bene
-    console.log(userNumEl);
+    //console.log(userNumEl);
     if (userNumEl == randNumber) {
         // evito che la pagina si rinfreschi in questo modo
         event.preventDefault();
         //console.log("hai inserito qualcosa che dovevi");
         postGameEl.style.display = "block";
+        campoFormEl.innerHTML = `
+        <label for="numero">Inserisci un numero tra 1 e 10:</label>
+        <input type="number" name="numero" min="1" max="10" id="user-num" required>
+        <input type="submit" value="Conferma" id="submit" disabled>
+        `;
         postGameEl.innerHTML = `
         <p class="parag">
             <span class="text-success">Corretto!</span>
             ho pensato proprio al numero ${userNumEl}, hai vinto!
+        </p>
+        `;
+    } else if (userNumEl > 0 && userNumEl < 11 && userNumEl !== randNumber) {
+        // evito che la pagina si rinfreschi in questo modo
+        event.preventDefault();
+        //console.log("AAAAAAAAAAH")
+        postGameEl.style.display = "block";
+        postGameEl.innerHTML = `
+        <p class="parag">
+            <span class="text-danger">Sbagliato!</span>
+            ho pensato un altro numero, ritenta!
         </p>
         `;
     }
