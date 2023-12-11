@@ -1,7 +1,7 @@
 /*
-Realizzare un semplice applicativo in un linguaggio a piacere che generi un numero intero casuale tra 1 e 10.
-Una volta generato tale numero deve chiedere un numero all’utente e verificare se ha indovinato il numero generato.
-Se l’utente non ha indovinato potrà riprovare altrimenti il programma informerà l’utente che ha vinto e terminerà.
+    Realizzare un semplice applicativo in un linguaggio a piacere che generi un numero intero casuale tra 1 e 10.
+    Una volta generato tale numero deve chiedere un numero all’utente e verificare se ha indovinato il numero generato.
+    Se l’utente non ha indovinato potrà riprovare altrimenti il programma informerà l’utente che ha vinto e terminerà.
 */
 
 // devo anzitutto raccogliere tutte le variabili che mi servono affinché ciò avvenga
@@ -21,9 +21,9 @@ button.addEventListener("click", startGame);
 
 //una volta raccolti gli elementi che mi servono creo una funzione di verifica.
 function startGame(event) {
-    /* verificato che il numero generato casualmente funziona,
+    /*verificato che il numero generato casualmente funziona,
     raccolgo la variabile del numero scelto dall'utente dentro la funzione,
-    fuori non avrebbe senso perché in quel momento il campo risulterebbe vuoto */
+    fuori non avrebbe senso perché in quel momento il campo risulterebbe vuoto*/
     let userNumEl = document.getElementById("user-num").value;
     //faccio un console log per assicurarmi giri tutto bene
     //console.log(userNumEl);
@@ -33,15 +33,15 @@ function startGame(event) {
         //console.log("hai inserito qualcosa che dovevi");
         postGameEl.style.display = "block";
         campoFormEl.innerHTML = `
-        <label for="numero">Inserisci un numero tra 1 e 10:</label>
-        <input type="number" name="numero" min="1" max="10" id="user-num" required>
-        <input type="submit" value="Conferma" id="submit" disabled>
+            <label for="numero">Inserisci un numero tra 1 e 10:</label>
+            <input type="number" name="numero" min="1" max="10" id="user-num" required>
+            <input type="submit" value="Conferma" id="submit" disabled>
         `;
         postGameEl.innerHTML = `
-        <p class="parag">
-            <span class="text-success">Corretto!</span>
-            ho pensato proprio al numero ${userNumEl}, hai vinto!
-        </p>
+            <p class="parag">
+                <span class="text-success">Corretto!</span>
+                ho pensato proprio al numero ${userNumEl}, hai vinto!
+            </p>
         `;
     } else if (userNumEl > 0 && userNumEl < 11 && userNumEl !== randNumber) {
         // evito che la pagina si rinfreschi in questo modo
@@ -49,10 +49,10 @@ function startGame(event) {
         //console.log("AAAAAAAAAAH")
         postGameEl.style.display = "block";
         postGameEl.innerHTML = `
-        <p class="parag">
-            <span class="text-danger">Sbagliato!</span>
-            ho pensato un altro numero, ritenta!
-        </p>
+            <p class="parag">
+                <span class="text-danger">Sbagliato!</span>
+                ho pensato un altro numero, ritenta!
+            </p>
         `;
     }
 }
