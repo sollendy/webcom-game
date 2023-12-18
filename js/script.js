@@ -21,6 +21,8 @@ button.addEventListener("click", startGame);
 
 //una volta raccolti gli elementi che mi servono creo una funzione di verifica.
 function startGame(event) {
+    // evito che la pagina si rinfreschi in questo modo
+    event.preventDefault();
     /*verificato che il numero generato casualmente funziona,
     raccolgo la variabile del numero scelto dall'utente dentro la funzione,
     fuori non avrebbe senso perché in quel momento il campo risulterebbe vuoto*/
@@ -28,8 +30,6 @@ function startGame(event) {
     //faccio un console log per assicurarmi giri tutto bene
     //console.log(userNumEl);
     if (userNumEl == randNumber) {
-        // evito che la pagina si rinfreschi in questo modo
-        event.preventDefault();
         //console.log("hai inserito qualcosa che dovevi");
         postGameEl.style.display = "block";
         campoFormEl.innerHTML = `
@@ -45,7 +45,7 @@ function startGame(event) {
         `;
     } else if (userNumEl > 0 && userNumEl < 11 && userNumEl !== randNumber) {
         // evito che la pagina si rinfreschi in questo modo
-        event.preventDefault();
+        // event.preventDefault();
         //console.log("AAAAAAAAAAH")
         postGameEl.style.display = "block";
         postGameEl.innerHTML = `
